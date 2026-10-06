@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform, type MotionValue } from "motion/react";
 import { ArrowRight } from "lucide-react";
-import { HERO_SLIDES, SITE } from "@/data/site";
+import { HERO_SLIDES } from "@/data/site";
 import { LineReveal, EASE } from "../Motion";
 
 const Slides = ({ active, y, scale }: { active: number; y: MotionValue<string>; scale: MotionValue<number> }) => (
@@ -52,10 +52,7 @@ export const HomeHero = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-black/40" />
       </motion.div>
       <motion.div style={{ y: textY, opacity: fade }} className="relative z-10 container-x h-full flex flex-col justify-end pb-16 md:pb-20">
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6, duration: 1 }} data-testid="hero-eyebrow" className="eyebrow text-[#e9e3da]">
-          Dal {SITE.founded} — {SITE.city} ({SITE.prov}), Italia
-        </motion.p>
-        <h1 className="mt-6 font-display text-[64px] sm:text-8xl lg:text-[150px] leading-[0.88] tracking-tight">
+        <h1 className="font-display text-[64px] sm:text-8xl lg:text-[150px] leading-[0.88] tracking-tight">
           <LineReveal delay={0.5} lines={["Materia,", "finitura,", <em key="p">progetto.</em>]} />
         </h1>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2, duration: 1, ease: EASE }} className="mt-10 flex flex-col sm:flex-row sm:items-end justify-between gap-8">

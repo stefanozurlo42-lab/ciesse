@@ -5,8 +5,10 @@
 Home, /collezioni, /servizi, /preventivo, /contatti — same design (Cormorant Garamond + Hanken Grotesk, cream #f4f0ea / ink #0b0b0b / clay #b4532a).
 User asked: DO NOT change anything beyond what they explicitly request (design must stay identical).
 Logo: official client logo (PDF → /public/logo-ciesse.svg + recoloured /public/logo-ciesse-light.svg for dark bg), used via components/Logo.tsx.
-Home: "I nostri partner" section removed; home services section hides 4 services (HIDDEN_ON_HOME in ServicesDark.tsx);
-/servizi page still lists all 8. Categories/stats/about texts updated per client (data/site.ts, About.tsx).
+Home: "I nostri partner" section removed; SERVICES now has 4 items (home + /servizi). Categories/stats/about texts updated
+per client (data/site.ts, About.tsx). Long titles in narrow bento tiles use a smaller size (titleSize in CategoriesBento.tsx).
+Favicon = orange helmet from the logo (favicon.svg/.ico/png, apple-touch-icon). Email header shows
+PUBLIC_SITE_URL/email-logo-ciesse.png (falls back to text wordmark if PUBLIC_SITE_URL is not https).
 
 ## Quote flow (/preventivo)
 3 steps: 01 Intervento (tipologia chip) → 02 Prodotti (categorie chips, descrizione, quantità, tempistiche chips) → 03 Contatti

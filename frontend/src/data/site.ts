@@ -65,10 +65,6 @@ export const SERVICES: Service[] = [
   { title: "Pronta consegna", text: "Visita il nostro magazzino: ordini, carichi e riparti in tempi brevi." },
   { title: "Detrazioni fiscali", text: "Approfitta degli incentivi economici sull'acquisto dei nostri prodotti." },
   { title: "Finanziamenti", text: "Finanziamenti a tasso zero su una vasta gamma di prodotti." },
-  { title: "Progettazione e consulenza interni", text: "I nostri consulenti sono a disposizione con assistenza dedicata." },
-  { title: "Movimento terra e parco mezzi", text: "Nolo di mezzi d'opera, betoniere, escavatori, piattaforme aeree e mezzi spalaneve." },
-  { title: "Produzione e scarico calcestruzzo", text: "Calcestruzzo prodotto nei nostri impianti, nolo e prestazioni di scarico di diverse tipologie." },
-  { title: "Pagamenti con carte", text: "Paga i tuoi acquisti con carte di credito, di debito e postali." },
 ];
 
 export const CERTIFICATIONS = [

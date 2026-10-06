@@ -31,6 +31,22 @@ def _section(title: str, rows: str) -> str:
     )
 
 
+def _brand(site: str) -> str:
+    """Official Ciesse logo (light artwork, PNG hosted by the site) — text wordmark if no https site URL."""
+    if site.startswith("https://"):
+        return (
+            f'<img src="{escape(site)}/email-logo-ciesse.png" width="220" height="53" '
+            f'alt="Ciesse - Materiali e Finiture per l\'Edilizia" '
+            f'style="display:block;border:0;outline:none;width:220px;height:auto;color:{CREAM};'
+            f'font-family:Georgia,serif;font-size:26px">'
+        )
+    return (
+        f'<p style="margin:0;font-family:Georgia,serif;font-size:26px;color:{CREAM}">Ciesse '
+        f'<span style="font-size:11px;letter-spacing:3px;color:#c9c1b5;font-family:Arial,sans-serif">'
+        f'INTERMEDIAZIONI</span></p>'
+    )
+
+
 def _wrap(title: str, intro: str, body: str, footer_note: str) -> str:
     site = _site_url()
     admin_link = (
@@ -44,9 +60,7 @@ def _wrap(title: str, intro: str, body: str, footer_note: str) -> str:
         f'font-family:Arial,Helvetica,sans-serif"><tr><td align="center" style="padding:24px 12px">'
         f'<table role="presentation" width="640" cellpadding="0" cellspacing="0" style="max-width:640px;'
         f'width:100%;background:{CREAM}">'
-        f'<tr><td style="background:{INK};padding:26px 32px"><p style="margin:0;font-family:Georgia,serif;'
-        f'font-size:26px;color:{CREAM}">Ciesse <span style="font-size:11px;letter-spacing:3px;'
-        f'color:#c9c1b5;font-family:Arial,sans-serif">INTERMEDIAZIONI</span></p></td></tr>'
+        f'<tr><td style="background:{INK};padding:26px 32px">{_brand(site)}</td></tr>'
         f'<tr><td style="padding:30px 32px 0"><h1 style="margin:0;font-family:Georgia,serif;font-weight:normal;'
         f'font-size:32px;line-height:1.15;color:{INK}">{escape(title)}</h1>'
         f'<p style="margin:12px 0 0;font-size:15px;color:#4a443d;line-height:1.5">{intro}</p></td></tr>'

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { ArrowRight, LogOut, Mail, Phone, RefreshCw, X } from "lucide-react";
-import { LogoMark } from "@/components/Logo";
+import { LogoImage } from "@/components/Logo";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { ApiError, apiGet, apiPatch, apiPost } from "@/lib/api";
@@ -58,7 +58,7 @@ const Login = () => {
   return (
     <div className="min-h-[100svh] grid lg:grid-cols-2">
       <div className="hidden lg:flex flex-col justify-between bg-[#0b0b0b] text-[#f4f0ea] p-14">
-        <div className="flex items-center gap-2.5"><LogoMark className="w-8 h-8" /><span className="font-display text-3xl">Ciesse</span></div>
+        <LogoImage light className="h-14 w-auto self-start" />
         <h1 className="font-display text-7xl leading-[0.95] tracking-tight">Area<br /><em>riservata.</em></h1>
         <p className="text-[13px] text-[#a39b90]">Gestione richieste di preventivo dal sito.</p>
       </div>
@@ -212,7 +212,7 @@ const Dashboard = () => {
       <header className="border-b border-[#0b0b0b]/10 bg-[#f4f0ea]/85 backdrop-blur-xl sticky top-0 z-40">
         <div className="container-x h-20 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2.5" data-testid="admin-brand-link">
-            <LogoMark /><span className="font-display text-[26px] leading-none">Ciesse</span>
+            <LogoImage className="h-11 w-auto" />
             <span className="hidden sm:inline text-[10px] tracking-[0.32em] uppercase mt-1.5 text-[#6b645b]">Area riservata</span>
           </Link>
           <button onClick={() => endSession("/admin")} data-testid="admin-logout-btn" className="flex items-center gap-2 text-[12px] tracking-[0.2em] uppercase nav-link">

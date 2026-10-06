@@ -28,8 +28,8 @@ const Tile = ({ c, i }: { c: Category; i: number }) => (
         <div>
           <p className="text-[12px] tracking-[0.3em] text-[#e9e3da]">{c.n}</p>
           <h3 className={`mt-2 font-display leading-none ${i === 0 ? "text-4xl md:text-6xl" : "text-3xl md:text-4xl"}`}>{c.title}</h3>
-          <p className="mt-3 max-w-sm text-[14px] text-[#e9e3da] leading-relaxed max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 transition-[max-height,opacity] duration-700 hidden md:block">{c.text}</p>
-          <p className="mt-3 max-w-sm text-[14px] text-[#e9e3da] leading-relaxed md:hidden">{c.text}</p>
+          <p className="mt-3 max-w-sm text-[14px] text-[#e9e3da] leading-relaxed whitespace-pre-line max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 transition-[max-height,opacity] duration-700 hidden md:block">{c.text}</p>
+          <p className="mt-3 max-w-sm text-[14px] text-[#e9e3da] leading-relaxed whitespace-pre-line md:hidden">{c.text}</p>
         </div>
         <span className="shrink-0 w-11 h-11 rounded-full border border-white/40 grid place-items-center transition-[background-color,transform] duration-500 group-hover:bg-[#B4532A] group-hover:border-[#B4532A] group-hover:rotate-45">
           <ArrowUpRight size={18} />

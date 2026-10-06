@@ -19,7 +19,7 @@ const Row = ({ c, i }: { c: Category; i: number }) => (
     <div className={`md:col-span-5 ${i % 2 ? "md:order-1 md:pr-10" : "md:pl-10"}`}>
       <p className="text-[12px] tracking-[0.3em] text-[#6b645b]">{c.n}</p>
       <h2 className="mt-4 font-display text-4xl md:text-6xl leading-[1] tracking-tight">{c.title}</h2>
-      <p className="mt-6 text-base leading-relaxed text-[#4a443d] max-w-md">{c.text}</p>
+      <p className="mt-6 text-base leading-relaxed text-[#4a443d] max-w-md whitespace-pre-line">{c.text}</p>
     </div>
   </motion.article>
 );

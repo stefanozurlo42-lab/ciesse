@@ -50,12 +50,12 @@ export const HERO_SLIDES = [
 export interface Category { n: string; title: string; text: string; img: string }
 
 export const CATEGORIES: Category[] = [
-  { n: "01", title: "Materiali edili", text: "Materiali da costruzione, laterizi, inerti, legnami, prodotti per posa, isolanti e impermeabilizzanti.", img: U("photo-1566041510394-cf7c8fe21800") },
-  { n: "02", title: "Ferramenta ed elettricità", text: "Ferramenta, articoli da cantiere, abbigliamento da lavoro e materiali elettrici.", img: U("photo-1558346648-9757f2fa4474") },
-  { n: "03", title: "Utensileria e sicurezza", text: "Utensileria e carpenteria, articoli per giardinaggio e fai da te.", img: U("photo-1599209250635-26c180f28419") },
+  { n: "01", title: "Materiali edili", text: "Laterizi, coperture, cementi, ferro, isolanti, impermeabilizzanti, malte, prodotti per la posa, legnami, travi lamellari", img: U("photo-1566041510394-cf7c8fe21800") },
+  { n: "02", title: "Ferramenta, elettricità, attrezzature, sicurezza", text: "Utensileria, attrezzature da cantiere, abbigliamento da lavoro", img: U("photo-1558346648-9757f2fa4474") },
+  { n: "03", title: "Calcestruzzo e lavorazione ferro", text: "Attività certificate Abicert 7399 - CLS-099 e UNI PDR 88\nCentro di Trasformazione N. 494/10", img: U("photo-1599209250635-26c180f28419") },
   { n: "04", title: "Vernici e colori", text: "Vernici, smalti, pitture e accessori per interni ed esterni.", img: U("photo-1620626011761-996317b8d101") },
-  { n: "05", title: "Idraulica e riscaldamento", text: "Impianti idraulici e di riscaldamento, stufe, camini, forni, caldaie, pellet, barbecue e termoarredi.", img: U("photo-1629079447777-1e605162dc8d") },
-  { n: "06", title: "Show-room e rivestimenti", text: "Arredo bagno, sanitari, rubinetteria, docce e idromassaggi, pavimenti, rivestimenti, mosaici e ceramiche.", img: U("photo-1687180498602-5a1046defaa4") },
+  { n: "05", title: "Termoidraulica e condizionamento", text: "Impianti idraulici, caldaie, termoarredi, pompe di calore, condizionatori, stufe, camini, forni, barbecue e pellet", img: U("photo-1629079447777-1e605162dc8d") },
+  { n: "06", title: "Show-room", text: "Pavimenti, rivestimenti, parquet, mosaici, ceramiche, arredo bagno, sanitari, rubinetteria, docce, idromassaggi", img: U("photo-1687180498602-5a1046defaa4") },
 ];
 
 export interface Service { title: string; text: string }
@@ -77,17 +77,11 @@ export const CERTIFICATIONS = [
   { k: "Ferro per costruzioni", v: "Centro di lavorazione — Centro di Trasformazione N° 494/10." },
 ];
 
-export const STATS = [
-  { k: "1992", v: "Anno di fondazione a Sulmona" },
+export const STATS: { k: string; k2?: string; v: string }[] = [
+  { k: "1992", v: "Anno di fondazione" },
   { k: "25.000", v: "Mq di magazzino" },
-  { k: "30+", v: "Anni di esperienza dei consulenti" },
-  { k: "ISO 9001", v: "Attività certificate" },
-];
-
-export const PARTNERS = [
-  "Palazzetti", "Knauf", "Villeroy & Boch", "Laufen", "Bosch", "Weber", "Sika", "Fassa Bortolo",
-  "Jacuzzi", "Scrigno", "Wierer", "Cerdomus", "Geopietra", "Ponte Giulio", "Fantini", "Honeywell",
-  "Leca", "Onduline", "Cordivari", "Ruredil", "Caesar", "Elica", "U-Power", "Friulsider",
+  { k: "30+", v: "Anni di esperienza" },
+  { k: "ISO 9001", k2: "ISO 45001", v: "Attività certificate" },
 ];
 
 export const MARQUEE = ["Materiali edili", "Ferramenta", "Utensileria", "Vernici e colori", "Termoidraulica", "Show-room", "Calcestruzzo", "Movimento terra"];

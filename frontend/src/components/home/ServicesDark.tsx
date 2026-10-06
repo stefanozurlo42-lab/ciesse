@@ -20,6 +20,16 @@ export const ServiceItem = ({ s, i }: { s: Service; i: number }) => (
   </motion.div>
 );
 
+// Removed from the home section on request: Progettazione e consulenza interni, Movimento terra e parco mezzi,
+// Produzione e scarico calcestruzzo, Pagamenti con carte.
+const HIDDEN_ON_HOME = new Set([
+  "Progettazione e consulenza interni",
+  "Movimento terra e parco mezzi",
+  "Produzione e scarico calcestruzzo",
+  "Pagamenti con carte",
+]);
+const HOME_SERVICES = SERVICES.filter((s) => !HIDDEN_ON_HOME.has(s.title));
+
 export const ServicesDark = () => (
   <section data-testid="services-section" className="bg-[#0b0b0b] text-[#f4f0ea]">
     <div className="container-x py-24 md:py-36">
@@ -30,7 +40,7 @@ export const ServicesDark = () => (
         </h2>
       </div>
       <div className="grid gap-x-8 sm:grid-cols-2 lg:grid-cols-4">
-        {SERVICES.map((s, i) => <ServiceItem key={s.title} s={s} i={i} />)}
+        {HOME_SERVICES.map((s, i) => <ServiceItem key={s.title} s={s} i={i} />)}
       </div>
       <Link to="/servizi" data-testid="services-see-all" className="btn-light mt-10">Tutti i servizi <ArrowRight size={16} /></Link>
     </div>

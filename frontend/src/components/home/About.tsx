@@ -26,18 +26,17 @@ export const About = () => (
       <div className="lg:col-span-4"><Eyebrow testId="about-eyebrow">Chi siamo</Eyebrow></div>
       <div className="lg:col-span-8">
         <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.02] tracking-tight">
-          <LineReveal inView lines={["Nati a Sulmona nel " + SITE.founded + ",", <em key="a">tutto per l'edilizia</em>, "in un unico indirizzo."]} />
+          <LineReveal inView lines={["Dal " + SITE.founded, <em key="a">a servizio dell'edilizia</em>]} />
         </h2>
         <Reveal delay={0.1} className="mt-10 grid gap-8 md:grid-cols-2 text-[15px] leading-relaxed text-[#4a443d]">
           <p data-testid="about-text-1">
-            La Ciesse Intermediazioni nasce a Sulmona nel {SITE.founded}, da una pregressa attività nel settore della vendita e del
-            commercio al dettaglio di materiali edili e attrezzature. Oggi è punto di riferimento dell'intero territorio per privati,
-            professionisti e aziende del settore.
+            La Ciesse Intermediazioni nasce a Sulmona nel {SITE.founded} ed è attiva nel commercio di materiali per l'edilizia, nella
+            produzione di calcestruzzo e nella lavorazione del ferro per cemento armato.
           </p>
           <p data-testid="about-text-2">
-            Nel vasto magazzino di oltre 25.000 mq trovate tutto per costruire, ristrutturare e rifinire; lo show-room è interamente
-            dedicato all'esposizione casa e alla progettazione di interni. Consulenti specializzati mettono a disposizione oltre 30
-            anni di esperienza.
+            Oggi è punto di riferimento per privati, professionisti e aziende del settore con il vasto magazzino di oltre 25.000 mq e
+            lo showroom dedicato all'esposizione e alla progettazione di interni. Consulenti specializzati mettono a disposizione
+            oltre 30 anni di esperienza.
           </p>
         </Reveal>
       </div>
@@ -50,6 +49,7 @@ export const About = () => (
       {STATS.map((s, i) => (
         <Reveal key={s.k} delay={i * 0.08} className="pt-8 pb-4 pr-4 border-b lg:border-b-0 border-[#0b0b0b]/10">
           <p data-testid={`stat-${i}`} className="font-display text-5xl md:text-6xl">{s.k}</p>
+          {s.k2 && <p data-testid={`stat-${i}-b`} className="font-display text-5xl md:text-6xl">{s.k2}</p>}
           <p className="mt-3 text-[13px] tracking-[0.12em] uppercase text-[#6b645b]">{s.v}</p>
         </Reveal>
       ))}

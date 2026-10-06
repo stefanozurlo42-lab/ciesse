@@ -3,7 +3,10 @@
 ## What it is
 1:1 port (Vite/React/TS + FastAPI) of the Ciesse site (originally CRA, source recovered from its sourcemap):
 Home, /collezioni, /servizi, /preventivo, /contatti — same design (Cormorant Garamond + Hanken Grotesk, cream #f4f0ea / ink #0b0b0b / clay #b4532a).
-User asked: DO NOT change anything beyond the quote system.
+User asked: DO NOT change anything beyond what they explicitly request (design must stay identical).
+Logo: official client logo (PDF → /public/logo-ciesse.svg + recoloured /public/logo-ciesse-light.svg for dark bg), used via components/Logo.tsx.
+Home: "I nostri partner" section removed; home services section hides 4 services (HIDDEN_ON_HOME in ServicesDark.tsx);
+/servizi page still lists all 8. Categories/stats/about texts updated per client (data/site.ts, About.tsx).
 
 ## Quote flow (/preventivo)
 3 steps: 01 Intervento (tipologia chip) → 02 Prodotti (categorie chips, descrizione, quantità, tempistiche chips) → 03 Contatti

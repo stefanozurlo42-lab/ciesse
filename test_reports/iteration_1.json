@@ -1,0 +1,77 @@
+{
+  "iteration": 1,
+  "mode": "generate",
+  "summary": "7 acceptance criteria covered with 6 browser checks + 4 backend test files (10 artifacts). All passed. Real quote submissions kept to the agreed budget of 3 (1 full-flow browser submit, 1 backend persistence test, 1 admin-status-management fixture), all named with (TEST) markers.",
+  "passed": 10,
+  "failed": 0,
+  "checks": [
+    {
+      "criterion": "Quote form /preventivo 3 steps submits to backend",
+      "name": "quote-flow-submits-success",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Full 3-step flow (tipologia -> categorie/descrizione/quantità/tempistiche -> nome/cognome/email/privacy) submitted; quote-success visible with text 'Richiesta di preventivo inviata con successo. Ti contatteremo al più presto.' and quote-success-number showing 'Numero richiesta: N'."
+    },
+    {
+      "criterion": "Persistence + email (POST /api/quotes 201 {id, numero, email_sent}, email_status stored)",
+      "name": "test_tscheck_quote_persistence_email.py",
+      "lane": "backend",
+      "status": "passed",
+      "evidence": "POST /api/quotes -> 201 {id, numero>0, email_sent: bool}; admin login 200 + GET /api/admin/quotes/{id} -> 200 with stored nome matching and email_status in (inviata/fallita) consistent with email_sent flag."
+    },
+    {
+      "criterion": "Step 3 validation (submit disabled without required fields; telefono required if preferenza=Telefono)",
+      "name": "quote-step3-validation",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Submit disabled on empty step3; stays disabled with invalid email even with privacy checked; enables with valid nome/cognome/email+privacy; re-disables when preferenza_contatto=Telefono selected without a phone number; re-enables after filling telefono."
+    },
+    {
+      "criterion": "Failure handling (POST /api/quotes intercepted to 500 -> error box + retry, draft kept)",
+      "name": "quote-failure-handling-retry",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Route /api/quotes intercepted to return 500; quote-error box + quote-retry-btn appeared; form fields retained their typed values; localStorage key ciesse-quote-draft present with nome='TscheckFailure' after the failed submit."
+    },
+    {
+      "criterion": "Admin protected (401 without cookie, wrong password rejected, correct password unlocks /api/admin/*)",
+      "name": "test_tscheck_admin_auth.py",
+      "lane": "backend",
+      "status": "passed",
+      "evidence": "GET /api/admin/quotes (no cookie) -> 401; GET /api/admin/stats (no cookie) -> 401; POST /api/auth/login wrong password -> 401; correct password -> 200 + ciesse_admin cookie; with cookie GET /api/admin/quotes -> 200 list, GET /api/admin/stats -> 200 with totale/email_fallite."
+    },
+    {
+      "criterion": "Admin protected (UI: /admin shows login; wrong password error; correct password dashboard)",
+      "name": "admin-login-flow",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Ran against public preview URL https://agent-preview-112.preview.emergentagent.com/admin (Secure cookie path). admin-login-form visible; wrong password produced admin-login-error; correct password (Ciesse-Admin-2026!) revealed admin-status-tabs + admin-quotes-list dashboard."
+    },
+    {
+      "criterion": "Admin status management (open row, verify fields, change status, counts update, save notes, logout)",
+      "name": "admin-status-management",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "Created own fixture quote via real POST /api/quotes (nome TscheckAdmin...; cognome 'StatusMgmt (TEST)'). Opened its own row (not a seeded row); detail fields matched (nome/cognome/email/tipologia). Changed status nuova->in_lavorazione; admin-count-in_lavorazione increased by exactly 1 after closing the sheet. Saved note_interne via quote-notes-save. Logged out via admin-logout-btn back to admin-login-form."
+    },
+    {
+      "criterion": "Rest of site works (/, /collezioni, /servizi, /contatti render without console errors; POST /api/contact 201)",
+      "name": "site-pages-render-and-contact-form",
+      "lane": "browser",
+      "status": "passed",
+      "evidence": "All four pages rendered with no page errors captured (pageerror listener empty). contact-form submitted on /contatti; waited for POST /api/contact response -> 201."
+    },
+    {
+      "criterion": "Rest of site works (POST /api/contact 201, API evidence)",
+      "name": "test_tscheck_contact_submit.py",
+      "lane": "backend",
+      "status": "passed",
+      "evidence": "POST /api/contact with valid body -> 201 {id, email_sent: bool}."
+    }
+  ],
+  "bugs": [],
+  "action_items": [
+    "Rate limiting (8/hour per IP on /api/quotes, 10/15min on /api/auth/login) was reviewed in code (lib/ratelimit.py) but not exercised with real repeated calls, to respect the 'max 3 real submissions' budget and avoid spamming the owner inbox with test emails. Recommend a dedicated low-volume test later (e.g. mocking time or the rate-limit module) if 429 behavior needs direct verification."
+  ],
+  "retest_needed": false
+}

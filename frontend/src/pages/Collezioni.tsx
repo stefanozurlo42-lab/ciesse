@@ -3,6 +3,7 @@ import { CATEGORIES, type Category } from "@/data/site";
 import { PageHero } from "@/components/PageHero";
 import { CtaBand } from "@/components/CtaBand";
 import { EASE } from "@/components/Motion";
+import { CategoryPhotos } from "@/components/CategoryPhotos";
 
 const Row = ({ c, i }: { c: Category; i: number }) => (
   <motion.article
@@ -13,8 +14,10 @@ const Row = ({ c, i }: { c: Category; i: number }) => (
     data-testid={`collection-row-${i}`}
     className="group grid gap-8 md:grid-cols-12 items-center py-12 md:py-16 border-t border-[#0b0b0b]/12"
   >
-    <div className={`md:col-span-7 overflow-hidden aspect-[16/10] ${i % 2 ? "md:order-2" : ""}`}>
-      <img src={c.img} alt={c.title} className="w-full h-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.05]" />
+    <div className={`relative md:col-span-7 overflow-hidden aspect-[16/10] ${i % 2 ? "md:order-2" : ""}`}>
+      <div className="absolute inset-0 transition-transform duration-[1.4s] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.05]">
+        <CategoryPhotos photos={c.photos} offset={i * 2500} testId={`collection-row-${i}-photo`} />
+      </div>
     </div>
     <div className={`md:col-span-5 ${i % 2 ? "md:order-1 md:pr-10" : "md:pl-10"}`}>
       <p className="text-[12px] tracking-[0.3em] text-[#6b645b]">{c.n}</p>

@@ -47,15 +47,27 @@ export const HERO_SLIDES = [
   U("photo-1556020685-ae41abfc9365"),
 ];
 
-export interface Category { n: string; title: string; text: string; img: string }
+// pos = CSS object-position keeping the subject in frame. Several photos on one category cross-fade.
+export interface Photo { src: string; alt: string; pos?: string }
+export interface Category { n: string; title: string; text: string; photos: Photo[] }
+
+const P = (name: string) => `/img/categorie/${name}.webp`;
 
 export const CATEGORIES: Category[] = [
-  { n: "01", title: "Materiali edili", text: "Laterizi, coperture, cementi, ferro, isolanti, impermeabilizzanti, malte, prodotti per la posa, legnami, travi lamellari", img: U("photo-1566041510394-cf7c8fe21800") },
-  { n: "02", title: "Ferramenta, elettricità, attrezzature, sicurezza", text: "Utensileria, attrezzature da cantiere, abbigliamento da lavoro", img: U("photo-1558346648-9757f2fa4474") },
-  { n: "03", title: "Calcestruzzo e lavorazione ferro", text: "Attività certificate Abicert 7399 - CLS-099 e UNI PDR 88\nCentro di Trasformazione N. 494/10", img: U("photo-1599209250635-26c180f28419") },
-  { n: "04", title: "Vernici e colori", text: "Vernici, smalti, pitture e accessori per interni ed esterni.", img: U("photo-1620626011761-996317b8d101") },
-  { n: "05", title: "Termoidraulica e condizionamento", text: "Impianti idraulici, caldaie, termoarredi, pompe di calore, condizionatori, stufe, camini, forni, barbecue e pellet", img: U("photo-1629079447777-1e605162dc8d") },
-  { n: "06", title: "Show-room", text: "Pavimenti, rivestimenti, parquet, mosaici, ceramiche, arredo bagno, sanitari, rubinetteria, docce, idromassaggi", img: U("photo-1687180498602-5a1046defaa4") },
+  { n: "01", title: "Materiali edili", text: "Laterizi, coperture, cementi, ferro, isolanti, impermeabilizzanti, malte, prodotti per la posa, legnami, travi lamellari", photos: [
+    { src: P("01-laterizi"), alt: "Bancali di laterizi nel piazzale Ciesse a Sulmona", pos: "center 62%" },
+    { src: P("01-weber"), alt: "Bancali di sacchi Weber nel magazzino Ciesse", pos: "center 55%" },
+  ] },
+  { n: "02", title: "Ferramenta, elettricità, attrezzature, sicurezza", text: "Utensileria, attrezzature da cantiere, abbigliamento da lavoro", photos: [
+    { src: P("02-upower"), alt: "Reparto abbigliamento e calzature da lavoro U-Power", pos: "center 18%" },
+    { src: P("02-bosch"), alt: "Parete utensili elettrici Bosch nello show-room Ciesse", pos: "center 28%" },
+  ] },
+  { n: "03", title: "Calcestruzzo e lavorazione ferro", text: "Attività certificate Abicert 7399 - CLS-099 e UNI PDR 88\nCentro di Trasformazione N. 494/10", photos: [
+    { src: P("03-ferro"), alt: "Impianto di lavorazione del ferro per cemento armato Ciesse", pos: "20% 60%" },
+  ] },
+  { n: "04", title: "Vernici e colori", text: "Vernici, smalti, pitture e accessori per interni ed esterni.", photos: [{ src: U("photo-1620626011761-996317b8d101"), alt: "Vernici e colori" }] },
+  { n: "05", title: "Termoidraulica e condizionamento", text: "Impianti idraulici, caldaie, termoarredi, pompe di calore, condizionatori, stufe, camini, forni, barbecue e pellet", photos: [{ src: U("photo-1629079447777-1e605162dc8d"), alt: "Termoidraulica e condizionamento" }] },
+  { n: "06", title: "Show-room", text: "Pavimenti, rivestimenti, parquet, mosaici, ceramiche, arredo bagno, sanitari, rubinetteria, docce, idromassaggi", photos: [{ src: U("photo-1687180498602-5a1046defaa4"), alt: "Show-room" }] },
 ];
 
 export interface Service { title: string; text: string }

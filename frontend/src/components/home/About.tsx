@@ -42,8 +42,7 @@ export const About = () => (
       </div>
     </div>
     <div className="mt-20 grid gap-4 md:grid-cols-12">
-      <ClippedPhoto testId="about-photo-aerial" src="/img/file2-18.jpeg" alt="Veduta aerea del magazzino Ciesse a Sulmona" className="md:col-span-8 aspect-[16/10]" />
-      <ClippedPhoto testId="about-photo-team" src="/img/ciesse-team-2.jpg" alt="Il team Ciesse nel piazzale" className="md:col-span-4 aspect-[16/10] md:aspect-auto md:h-full" />
+      <ClippedPhoto testId="about-photo-aerial" src="/img/file2-18.jpeg" alt="Veduta aerea del magazzino Ciesse a Sulmona" className="md:col-start-3 md:col-span-8 aspect-[16/10]" />
     </div>
     <div className="mt-20 grid grid-cols-2 lg:grid-cols-4 border-t border-[#0b0b0b]/15">
       {STATS.map((s, i) => (

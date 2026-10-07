@@ -16,7 +16,7 @@ const Row = ({ c, i }: { c: Category; i: number }) => (
   >
     <div className={`relative md:col-span-7 overflow-hidden aspect-[16/10] ${i % 2 ? "md:order-2" : ""}`}>
       <div className="absolute inset-0 transition-transform duration-[1.4s] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.05]">
-        <CategoryPhotos photos={c.photos} offset={i * 2500} testId={`collection-row-${i}-photo`} />
+        <CategoryPhotos photos={c.wide ?? c.photos} offset={i * 2500} testId={`collection-row-${i}-photo`} />
       </div>
     </div>
     <div className={`md:col-span-5 ${i % 2 ? "md:order-1 md:pr-10" : "md:pl-10"}`}>

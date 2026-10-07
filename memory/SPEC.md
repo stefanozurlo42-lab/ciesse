@@ -11,7 +11,10 @@ Favicon = orange helmet from the logo (favicon.svg/.ico/png, apple-touch-icon). 
 PUBLIC_SITE_URL/email-logo-ciesse.png (falls back to text wordmark if PUBLIC_SITE_URL is not https).
 Category photos: Category.photos[] ({src, alt, pos=object-position}) in data/site.ts; 01–03 are the client's real photos in
 /public/img/categorie/*.webp (Weber rotated upright). >1 photo cross-fades every 5s (components/CategoryPhotos.tsx,
-offset i*2500ms so tiles don't switch together), used by home bento + /collezioni. 04–06 still Unsplash (phase 2).
+offset i*2500ms so tiles don't switch together), used by home bento + /collezioni (Collezioni uses `wide ?? photos`).
+02 = U-Power+Bosch joined side by side (02-upower-bosch.webp). 03 = ferro + magazzino (cross-fade).
+04 = tintometro + pitture: cross-fade on home narrow tile, joined side-by-side (04-tintometro-pitture.webp) in Collezioni.
+05–06 still Unsplash (waiting for client photos).
 "Chi siamo": team photo removed, aerial photo centred (md:col-start-3 md:col-span-8, same size).
 
 ## Quote flow (/preventivo)
